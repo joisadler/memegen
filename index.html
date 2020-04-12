@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memegen</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body onload="onInit()">
+    <section class="screen" onclick="toggleMenu()"></section>
+    <header class="main-header">
+      <div class="main-header-content">
+        <h1 class="logo">Memegen</h1>
+        <nav class="main-nav">
+          <a class="main-nav-link" href="#" onclick="renderGallery()">Gallery</a>
+          <a class="main-nav-link" href="#" onclick="renderMemes()">Memes</a>
+          <a class="main-nav-link" href="#" onclick="closeMenu()">about</a>
+        </nav>
+        <button class="hamburger hamburger--spin btn-menu" onclick="toggleMenu()" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+    </header>
+    <div class="header-placeholder"></div>
+    <section class="main-container">
+      <div class="editor-container">
+        <div class="canvas-background">
+          <main class="canvas-container" onmousedown="onClickOnCanvas(event)" ontouchstart="onTouchCanvas(event)">
+            <canvas class="canvas" id="canvas"></canvas>
+          </main>
+        </div>
+        <aside class="controls-container">
+          <section class="text-input-section">
+            <input type="textarea" name="" class="text-input" placeholder="text here" onkeyup="onChangeText(this.value)" autofocus>
+          </section>
+          <section class="line-buttons-section">
+            <button class="add-line-button" onclick="onAddNewLine()">
+              <i class="far fa-plus-square"></i>
+              Add line
+            </button>
+            <button class="delete-line-button" onclick="onDeleteCurrentLine()">
+              <i class="far fa-trash-alt"></i>
+              Delete line
+            </button>
+            <button class="line-down-button" onclick="onLineDown()">
+              <i class="fas fa-long-arrow-alt-up"></i>
+            </button>
+            <button class="line-up-button" onclick="onLineUp()">
+              <i class="fas fa-long-arrow-alt-down"></i>
+            </button>
+            <button class="switch-lines-button" onclick="onSwitchFocus()">
+              <i class="fas fa-arrows-alt-v"></i>
+            </button>
+          </section>
+          <section class="font-buttons-section">
+            <button class="increase-font-button" onclick="onIncreaseFontSize()">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button class="decrease-font-button" onclick="onDecreaseFontSize()">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button class="font-weight-button" onclick="onChangeFontWeight(this)">Bold</button>
+            <select class="select-font" onchange="onSetFont(this)">
+              <option value="Impact">Impact</option>
+              <option value="Arial">Arial</option>
+              <option value="Times New Roman">Times New Roman</option>
+            </select>
+            <div class="color-inputs">
+              <input type="color" class="text-color" id="text-color" value="#ffffff" onchange="onSetColor(this)">
+              <input type="color" class="stroke-color" id="stroke-color" value="#000000" onchange="onSetStrokeColor(this)">
+            </div>
+          </section>
+          <section class="meme-buttons-section">
+            <button class="save-button" onclick="onSave()">
+              <!-- <i class="fas fa-minus"></i> -->
+              Save
+            </button>
+          </section>
+        </aside>
+      </div>
+      <div class="gallery">
+        <div class="gallery-images">
+          <img src="img/2.jpg" alt="Happy girl" data-id="1" onclick="onImgClick(this.dataset)">
+          <img src="img/003.jpg" alt="Trump finger" data-id="2" onclick="onImgClick(this.dataset)">
+          <img src="img/004.jpg" alt="Puppies" data-id="3" onclick="onImgClick(this.dataset)">
+          <img src="img/005.jpg" alt="Sleep" data-id="4" onclick="onImgClick(this.dataset)">
+          <img src="img/5.jpg" alt="Strong boy" data-id="5" onclick="onImgClick(this.dataset)">
+          <img src="img/006.jpg" alt="Sleeping Cat" data-id="6" onclick="onImgClick(this.dataset)">
+          <img src="img/8.jpg" alt="Lets talk" data-id="7" onclick="onImgClick(this.dataset)">
+          <img src="img/9.jpg" alt="Evil Toddler" data-id="8" onclick="onImgClick(this.dataset)">
+          <img src="img/12.jpg" alt="You" data-id="9" onclick="onImgClick(this.dataset)">
+          <img src="img/19.jpg" alt="WTF" data-id="10" onclick="onImgClick(this.dataset)">
+          <img src="img/Ancient-Aliens.jpg" alt="Ancient Aliens" data-id="11" onclick="onImgClick(this.dataset)">
+          <img src="img/drevil.jpg" alt="Dr Evil" data-id="12" onclick="onImgClick(this.dataset)">
+          <img src="img/img2.jpg" alt="Funny african boys dance" data-id="13" onclick="onImgClick(this.dataset)">
+          <img src="img/img4.jpg" alt="Angry Trump" data-id="14" onclick="onImgClick(this.dataset)">
+          <img src="img/img5.jpg" alt="Surpriced boy" data-id="15" onclick="onImgClick(this.dataset)">
+          <img src="img/img6.jpg" alt="Dog gym" data-id="16" onclick="onImgClick(this.dataset)">
+          <img src="img/img11.jpg" alt="Laughing Obama" data-id="17" onclick="onImgClick(this.dataset)">
+          <img src="img/img12.jpg" alt="Basketball kiss" data-id="18" onclick="onImgClick(this.dataset)">
+          <img src="img/leo.jpg" alt="DiCaprio cheers" data-id="19" onclick="onImgClick(this.dataset)">
+          <img src="img/meme1.jpg" alt="Morpheus" data-id="20" onclick="onImgClick(this.dataset)">
+          <img src="img/One-Does-Not-Simply.jpg" alt="One does not simply" data-id="21" onclick="onImgClick(this.dataset)">
+          <img src="img/Oprah-You-Get-A.jpg" alt="Oprah" data-id="22" onclick="onImgClick(this.dataset)">
+          <img src="img/patrick.jpg" alt="Patrick" data-id="23" onclick="onImgClick(this.dataset)">
+          <img src="img/putin.jpg" alt="Putin" data-id="24" onclick="onImgClick(this.dataset)">
+          <img src="img/X-Everywhere.jpg" alt="X, X, Everywhere" data-id="25" onclick="onImgClick(this.dataset)">
+        </div>
+      </div>
+      <div class="memes-container">
+        <div class="memes"></div>
+      </div>
+    </section>
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+    <script src="js/default-memes.js"></script>
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/keywords-service.js"></script>
+    <script src="js/services/images-service.js"></script>
+    <script src="js/services/memes-service.js"></script>
+    <script src="js/controllers/main-controller.js"></script>
+    <script src="js/controllers/memes-controller.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+  </body>
+</html>
