@@ -36,7 +36,8 @@ function saveMemeToStorage(meme) {
 
 // eslint-disable-next-line no-unused-vars
 function getMemesForDisplay() {
-  return gMemes;
+  // eslint-disable-next-line no-undef
+  return getMemesFromStorage() ? getMemesFromStorage() : getDefaultMemes();
 }
 
 // eslint-disable-next-line no-unused-vars

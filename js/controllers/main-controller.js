@@ -3,15 +3,13 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-use-before-define */
 
-let gCanvas;
-let gCtx;
+let gCanvas = document.querySelector('#canvas');
+let gCtx = gCanvas.getContext('2d');
 let isLineDraggable = false;
 
 // eslint-disable-next-line no-unused-vars
 function onInit() {
   renderGallery();
-  // renderEditor();
-  // renderMemes();
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -156,7 +154,6 @@ function renderMeme({
   lines,
 }) {
   const img = new Image();
-
   // eslint-disable-next-line no-undef
   img.src = getImageById(selectedImgId).url;
   img.onload = () => {
@@ -301,11 +298,8 @@ function onSetStrokeColor({ value }) {
 
 // eslint-disable-next-line no-unused-vars
 function onSave() {
-  const canvas = document.querySelector('#canvas');
-  const dataURL = canvas.toDataURL();
   // eslint-disable-next-line no-undef
   const currentMemeClone = JSON.parse(JSON.stringify(getCurrentMeme()));
-  currentMemeClone.dataURL = dataURL;
   // eslint-disable-next-line no-undef
   saveMemeToStorage(currentMemeClone);
   // eslint-disable-next-line no-undef
