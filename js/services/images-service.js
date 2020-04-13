@@ -133,3 +133,12 @@ function getImageById(id) {
   return gImages
     .find(img => img.id === id);
 }
+
+function getImagesForDisplay() {
+  return gImages;
+}
+
+function getImagesByKeyword(txt) {
+  if (!txt) return gImages;
+  return gImages.filter(img => img.keywords.includes(txt));
+}

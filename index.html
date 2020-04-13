@@ -83,33 +83,12 @@
         </aside>
       </div>
       <div class="gallery">
-        <div class="gallery-images">
-          <img src="img/2.jpg" alt="Happy girl" data-id="1" onclick="onImgClick(this.dataset)">
-          <img src="img/003.jpg" alt="Trump finger" data-id="2" onclick="onImgClick(this.dataset)">
-          <img src="img/004.jpg" alt="Puppies" data-id="3" onclick="onImgClick(this.dataset)">
-          <img src="img/005.jpg" alt="Sleep" data-id="4" onclick="onImgClick(this.dataset)">
-          <img src="img/5.jpg" alt="Strong boy" data-id="5" onclick="onImgClick(this.dataset)">
-          <img src="img/006.jpg" alt="Sleeping Cat" data-id="6" onclick="onImgClick(this.dataset)">
-          <img src="img/8.jpg" alt="Lets talk" data-id="7" onclick="onImgClick(this.dataset)">
-          <img src="img/9.jpg" alt="Evil Toddler" data-id="8" onclick="onImgClick(this.dataset)">
-          <img src="img/12.jpg" alt="You" data-id="9" onclick="onImgClick(this.dataset)">
-          <img src="img/19.jpg" alt="WTF" data-id="10" onclick="onImgClick(this.dataset)">
-          <img src="img/Ancient-Aliens.jpg" alt="Ancient Aliens" data-id="11" onclick="onImgClick(this.dataset)">
-          <img src="img/drevil.jpg" alt="Dr Evil" data-id="12" onclick="onImgClick(this.dataset)">
-          <img src="img/img2.jpg" alt="Funny african boys dance" data-id="13" onclick="onImgClick(this.dataset)">
-          <img src="img/img4.jpg" alt="Angry Trump" data-id="14" onclick="onImgClick(this.dataset)">
-          <img src="img/img5.jpg" alt="Surpriced boy" data-id="15" onclick="onImgClick(this.dataset)">
-          <img src="img/img6.jpg" alt="Dog gym" data-id="16" onclick="onImgClick(this.dataset)">
-          <img src="img/img11.jpg" alt="Laughing Obama" data-id="17" onclick="onImgClick(this.dataset)">
-          <img src="img/img12.jpg" alt="Basketball kiss" data-id="18" onclick="onImgClick(this.dataset)">
-          <img src="img/leo.jpg" alt="DiCaprio cheers" data-id="19" onclick="onImgClick(this.dataset)">
-          <img src="img/meme1.jpg" alt="Morpheus" data-id="20" onclick="onImgClick(this.dataset)">
-          <img src="img/One-Does-Not-Simply.jpg" alt="One does not simply" data-id="21" onclick="onImgClick(this.dataset)">
-          <img src="img/Oprah-You-Get-A.jpg" alt="Oprah" data-id="22" onclick="onImgClick(this.dataset)">
-          <img src="img/patrick.jpg" alt="Patrick" data-id="23" onclick="onImgClick(this.dataset)">
-          <img src="img/putin.jpg" alt="Putin" data-id="24" onclick="onImgClick(this.dataset)">
-          <img src="img/X-Everywhere.jpg" alt="X, X, Everywhere" data-id="25" onclick="onImgClick(this.dataset)">
-        </div>
+        <section class="keywords-search-section">
+          <label for="keywords-search-input">Search images by keyword:</label>
+          <input type="text" class="keywords-search-input" id="keywords-search-input" oninput="onSearchImages(this.value)">
+        </section>
+        <section class="gallery-images-section">
+        </section>
       </div>
       <div class="memes-container">
         <div class="memes"></div>
@@ -120,6 +99,7 @@
     <script src="js/services/keywords-service.js"></script>
     <script src="js/services/images-service.js"></script>
     <script src="js/services/memes-service.js"></script>
+    <script src="js/controllers/gallery-controller.js"></script>
     <script src="js/controllers/main-controller.js"></script>
     <script src="js/controllers/memes-controller.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>

@@ -10,21 +10,11 @@ let gCanvasForDownload;
 
 // eslint-disable-next-line no-unused-vars
 function onInit() {
+  // eslint-disable-next-line no-undef
   renderGallery();
 }
 
 // eslint-disable-next-line no-unused-vars
-function renderGallery() {
-  closeMenu();
-  const elGallery = document.querySelector('.gallery');
-  const elEditor = document.querySelector('.editor-container');
-  const elMemesContainer = document.querySelector('.memes-container');
-  elEditor.style.display = 'none';
-  elMemesContainer.style.display = 'none';
-  elGallery.style.display = 'flex';
-  window.onresize = null;
-}
-
 function renderEditor() {
   gCanvas = document.querySelector('#canvas');
   gCtx = gCanvas.getContext('2d');
@@ -209,13 +199,6 @@ function onDeleteCurrentLine() {
 }
 
 // eslint-disable-next-line no-unused-vars
-function onImgClick({ id }) {
-  // eslint-disable-next-line no-undef
-  setSelectedImgId(id);
-  renderEditor();
-}
-
-// eslint-disable-next-line no-unused-vars
 function onLineUp() {
   // eslint-disable-next-line no-undef
   moveCurrentLineUp();
@@ -322,6 +305,7 @@ function toggleMenu() {
   document.body.classList.toggle('show-screen');
 }
 
+// eslint-disable-next-line no-unused-vars
 function closeMenu() {
   const hamburger = document.querySelector('.hamburger');
   hamburger.classList.remove('is-active');
