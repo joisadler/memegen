@@ -145,7 +145,7 @@ function renderMeme({
   selectedLineIdx,
   lines,
 }) {
-  const img = new Image();
+  const img = document.createElement('img');
   // eslint-disable-next-line no-undef
   img.src = getImageById(selectedImgId).url;
   img.onload = () => {
