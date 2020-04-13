@@ -6,6 +6,7 @@
 let gCanvas = document.querySelector('#canvas');
 let gCtx = gCanvas.getContext('2d');
 let isLineDraggable = false;
+let gCanvasForDownload;
 
 // eslint-disable-next-line no-unused-vars
 function onInit() {
@@ -136,6 +137,7 @@ function drawTextLines(lines, selectedLineIdx) {
       if (!isMobileDevice()) {
         elTextInput.focus();
       }
+      gCanvasForDownload = cloneCanvas(gCanvas);
       const txtWidth = gCtx.measureText(txt).width;
       // eslint-disable-next-line no-undef
       setCurrentLineTextWidth(line, txtWidth);
@@ -307,6 +309,13 @@ function onSave() {
 }
 
 // eslint-disable-next-line no-unused-vars
+function onDownload(elLink) {
+  const data = gCanvasForDownload.toDataURL();
+  elLink.href = data;
+  elLink.download = 'my-img.png';
+}
+
+// eslint-disable-next-line no-unused-vars
 function toggleMenu() {
   const hamburger = document.querySelector('.hamburger');
   hamburger.classList.toggle('is-active');
@@ -322,4 +331,13 @@ function closeMenu() {
 function isMobileDevice() {
   return (typeof window.orientation !== 'undefined') ||
   (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
+function cloneCanvas(oldCanvas) {
+  const newCanvas = document.createElement('canvas');
+  const context = newCanvas.getContext('2d');
+  newCanvas.width = oldCanvas.width;
+  newCanvas.height = oldCanvas.height;
+  context.drawImage(oldCanvas, 0, 0);
+  return newCanvas;
 }

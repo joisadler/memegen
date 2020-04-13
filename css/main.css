@@ -344,7 +344,8 @@ body {
 
 .controls-container button,
 .controls-container select,
-.color-inputs input {
+.color-inputs input,
+a.download-button {
   padding: 0;
   height: 2rem;
   width: 2rem;
@@ -375,7 +376,9 @@ body {
 .controls-container button:hover,
 .controls-container button:focus,
 .controls-container select:hover,
-.controls-container select:focus {
+.controls-container select:focus,
+a.download-button:hover,
+a.download-button:focus {
   background-color: #e6e6e6;
   outline: 0;
   text-decoration: none;
@@ -384,16 +387,13 @@ body {
 }
 
 .controls-container button:active,
-.controls-container select:active {
+.controls-container select:active,
+a.download-button:active {
   background-image: none;
   outline: 0;
   background-color: #e6e6e6;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-
-/* .color-inputs input {
-  margin-block-end: 0;
-} */
 
 .add-line-button {
   min-width: 5.5rem;
@@ -418,6 +418,11 @@ body {
 
 .save-button {
   min-width: 3rem;
+}
+
+.download-button {
+  min-width: 6rem;
+  text-decoration: none;
 }
 
 .gallery,
